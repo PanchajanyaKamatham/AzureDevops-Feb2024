@@ -1,0 +1,34 @@
+
+AzureDevops 
+
+IAC - Infrastructure as a code
+
+ARMTemplates
+Terraform 
+
+AzureDevops - SAAS
+
+Azure Boards (Agile, scrum)
+Azure Repo (Git, Github)
+Azure Pipeline (CI & CD)
+
+Docker 
+AKS
+
+
+Why IAC?
+
+1. Automated way of deployment
+2. Delcarative code 
+3. Repeatable 
+4. Preductable
+
+ARMTemplates structure / Elements:
+
+Schema
+Contentversion
+Parameters
+Variables
+Resources
+Outputs
+

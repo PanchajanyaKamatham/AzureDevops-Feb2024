@@ -1,0 +1,37 @@
+{
+    "TrainingModule": "Azure with AzureDevops",
+    "TrainingInstitute": "SAANVIK IT",
+    "TrainerName": "Ramakrishna",
+    "contactNumber": 9513184144,
+    "Address": {
+        "platno": 1234,
+        "location": "kukatpally",
+        "city": "hyderabad",
+        "state": "TS",
+        "Country": "India",
+        "pincode": 1234567
+    },
+
+    "participants": [
+        {
+            "Name": "Ravi",
+            "location": "Hyderabad",
+            "IsAzureAdmin": true
+        },
+        {
+            "Name": "Shanmukhi",
+            "location": "UK",
+            "IsAzureAdmin": true
+        },
+        {
+            "Name": "Vijay",
+            "location": "Poland",
+            "IsAzureAdmin": false
+        },
+        {
+            "Name": "Rajesh",
+            "location": "madurai",
+            "IsAzureAdmin": true
+        }
+    ]
+}
