@@ -23,6 +23,9 @@ Why IAC?
 3. Repeatable 
 4. Preductable
 
+JSON Data types:
+    https://www.w3schools.com/js/js_json_datatypes.asp
+
 ARMTemplates structure / Elements:
 
 Schema
@@ -32,3 +35,10 @@ Variables
 Resources
 Outputs
 
+ARMTemplates documentation:
+
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/
+
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code?tabs=CLI
+
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax
