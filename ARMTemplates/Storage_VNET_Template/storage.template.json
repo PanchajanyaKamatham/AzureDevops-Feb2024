@@ -1,0 +1,98 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storage_account_name": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the storage account"
+            }
+        },
+        "storage_account_type": {
+            "type": "string",
+            "metadata": {
+                "description": "Type of storage account"
+            },
+            "allowedValues": [
+                "BlobStorage",
+                "BlockBlobStorage",
+                "FileStorage",
+                "Storage",
+                "StorageV2"
+            ],
+            "defaultValue": "StorageV2"
+        },
+        "storage_account_sku": {
+            "type": "string",
+            "allowedValues": [
+                "Premium_LRS",
+                "Premium_ZRS",
+                "Standard_GRS",
+                "Standard_GZRS",
+                "Standard_LRS",
+                "Standard_RAGRS",
+                "Standard_RAGZRS",
+                "Standard_ZRS"
+            ],
+            "defaultValue": "Standard_LRS"
+        }
+    },
+    "functions": [],
+    "variables": {
+        "tags": {
+            "project": "saanvik it",
+            "location": "eastus",
+            "department": "cloud",
+            "environment": "dev"
+        },
+     "vnet": {
+        "vnet_name": "arm-vnet",
+        "vnet_ipaddress": ["172.16.0.0/24","192.168.0.0/24"],
+        "subnet_name1": "arm-snet-1",
+        "subnet_name2": "arm-snet-2",
+        "subnet_name1_ipaddress": "172.16.0.0/25",
+        "subnet_name2_ipaddress": "172.16.0.128/25"
+     }
+    },
+    "resources": [
+        {
+            "name": "[parameters('storage_account_name')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2023-01-01",
+            "tags": "[variables('tags')]",
+            "location": "[resourceGroup().location]",
+            "kind": "[parameters('storage_account_type')]",
+            "sku": {
+                "name": "[parameters('storage_account_sku')]",
+                "tier": "Standard"
+            }
+        },
+        {
+            "name": "[variables('vnet').vnet_name]",
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2023-04-01",
+            "location": "[resourceGroup().location]",
+            "tags": "[variables('tags')]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": "[variables('vnet').vnet_ipaddress]"
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('vnet').subnet_name1]",
+                        "properties": {
+                            "addressPrefix": "[variables('vnet').subnet_name1_ipaddress]"
+                        }
+                    },
+                    {
+                        "name": "[variables('vnet').subnet_name2]",
+                        "properties": {
+                            "addressPrefix": "[variables('vnet').subnet_name2_ipaddress]"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {}
+}
