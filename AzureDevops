@@ -42,3 +42,49 @@ https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code?tabs=CLI
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax
+
+Helper functions:
+---------------
+resourcegroup().location
+dependsOn
+concat
+toLower
+toUpper
+resourceId
+copyIndex()
+
+Deployment Mode: 
+    - Incremental 
+    - Complete
+
+
+Incremental:
+ARM-Group --> 30 storage account (storage.template.json)
+          --> VM (vm.template.json)
+
+Complete: 
+ARM-Group --> 30 storage account (storage.template.json)
+          --> VM (vm.template.json)
+
+deploy multiple resources in multiple locations:
+-----------------------------------------------
+"parameters": {  
+  "location": {  
+    "type": "array",  
+    "defaultValue": [  
+      "contoso",  
+      "fabrikam",  
+      "coho"  
+    ]  
+  }  
+},  
+"resources": [  
+  {  
+    "name": "[concat('storage', parameters('location')[copyIndex()])]",  
+    "copy": {  
+      "name": "storagecopy",  
+      "count": "[length(parameters('location'))]"  
+    },  
+    ...  
+  }  
+]

@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        // "virtual_machine_name": {
+        //     "value": "arm-vm"
+        // },
+        // "virtual_machine_size": {
+        //     "value": "Standard_Ds1_v2"
+        // },
+        // "adminUser": {
+        //     "value": "azureuser"
+        // },
+        // "adminPassword": {
+        //     "value": "Azuredevops@12345"
+        // }
+    }
+}
