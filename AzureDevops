@@ -88,3 +88,42 @@ deploy multiple resources in multiple locations:
     ...  
   }  
 ]
+
+
+Terraform: IAC Tool
+---------
+
+ARMTemplates                                              Terraform
+------------                                              ----------
+1. IAC                                                    1. IAC 
+2. Specific to Azure                                      2. Open source (Azure, AWS, GCP, onprem etc)
+3. JSON format                                            3. HCL (Hashicorp configuration language) format
+4. file extension .JSON                                   4. file extension .tf
+5. template.json                                          5. main.tf
+   parameters.json                                           variables.tf
+6. Structure of ARMTemplates                              6. Building blocks of terraform
+  Schema                                                      provider
+  ContentVersion                                              resources
+  Parameters                                                  outputs
+  Variables
+  Resources
+  Fuctions
+  outputs
+7. Deploy using powershell/CLI                            7. Lifecyble of terraform
+  New-AzResourceGroupDeployment `                             terraform init
+  -ResourceGroupName "" `                                     terraform fmt
+  -TemplateFile "" `                                          terraform validate
+  -TemplateParameterFile "" `                                 terraform plan
+  -Verbose                                                    terraform apply 
+                                                              terraform destroy
+
+Getting started with terraform:
+------------------------------
+Download terraform: https://developer.hashicorp.com/terraform/install
+
+Extract the terraformxxxxx.zip --> terraform.exe --> copy this file to c:/windows
+
+tovalidate it --> open any terminal (cmd/powershell) --> terraform
+
+VSCode --> Extensions --> -HashiCorp Terraform and -Azure Terraform
+
