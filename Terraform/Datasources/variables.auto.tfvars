@@ -1,0 +1,6 @@
+storage_account_name = "saanvikitsa5677"
+publicip_name        = "saanvikit-pip"
+nsg_name             = "saanvikit-nsg"
+nic_name             = "saanvikit-nic"
+vm_name              = "saanvikit-vm"
+admin_username       = "ramakrishna"

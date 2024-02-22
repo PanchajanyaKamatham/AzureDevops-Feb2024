@@ -127,3 +127,30 @@ tovalidate it --> open any terminal (cmd/powershell) --> terraform
 
 VSCode --> Extensions --> -HashiCorp Terraform and -Azure Terraform
 
+terraform init
+terraform fmt
+terraform validate
+terraform plan
+terraform apply -auto-approve
+terraform destroy -auto-approve
+
+Terraform data sources:
+----------------------
+Re-using the existing resource configuration
+
+Azure portal - RG, VNET/SNET
+
+deploy a VM
+
+Refer keyvault to get the secrets
+
+Azure terraform backend:
+-----------------------
+Azure storage account --> container --> terraform.tfstate
+
+Authentication to azure using service principal
+
+client_id: 637b02ee-cb65-48fe-8ac8-9635b399412c
+tenant_id: 459865f1-a8aa-450a-baec-8b47a9e5c904
+secret: 8v78Q~ou8QBcUfXT643.UfuJpk8JHtqGMujjgc2i
+subscription_id: 2e28c82c-17d7-4303-b27a-4141b3d4088f
