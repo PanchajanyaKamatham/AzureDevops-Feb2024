@@ -154,3 +154,23 @@ client_id: 637b02ee-cb65-48fe-8ac8-9635b399412c
 tenant_id: 459865f1-a8aa-450a-baec-8b47a9e5c904
 secret: 8v78Q~ou8QBcUfXT643.UfuJpk8JHtqGMujjgc2i
 subscription_id: 2e28c82c-17d7-4303-b27a-4141b3d4088f
+
+
+Multi resource deployment:
+-------------------------
+ARMTemplates - copyindex()
+Terraform -> count.index
+          -> for_each
+
+ResourceGroup
+VNET/SNET     - NO
+NSG           - NO
+NIC           - YES
+StorageAccount - NO
+VM             - YES
+OSDisk         - YES
+Publicip       - YES
+
+
+Terraform Modules:
+-----------------
