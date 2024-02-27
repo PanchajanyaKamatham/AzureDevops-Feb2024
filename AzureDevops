@@ -174,3 +174,13 @@ Publicip       - YES
 
 Terraform Modules:
 -----------------
+ Re-using the existing terraform config files
+  - VM
+  - Storage
+  - VNET
+  - Webapp
+  - SQL 
+
+
+Local Module
+Remote module

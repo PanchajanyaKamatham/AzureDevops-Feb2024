@@ -1,0 +1,14 @@
+rg_name            = "dev-rg"
+location           = "eastus"
+storageaccountname = "devsa27022024"
+vnet_name          = "dev-vnet"
+vnet_address       = ["10.0.0.0/24"]
+subnet             = "dev-snet"
+subnetaddress      = ["10.0.0.0/25"]
+pip_name           = "dev-pip"
+nsg                = "dev-nsg"
+nic                = "dev-nic"
+vm                 = "dev-vm"
+vmsize             = "Standard_Ds1_v2"
+adminuser          = "devuser"
+password           = "Azuredevops@12345"

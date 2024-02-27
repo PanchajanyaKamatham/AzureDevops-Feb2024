@@ -1,0 +1,14 @@
+rg_name            = "nonprod-rg"
+location           = "eastus"
+storageaccountname = "nonprodsa27022024"
+vnet_name          = "nonprod-vnet"
+vnet_address       = ["172.16.0.0/24"]
+subnet             = "nonprod-snet"
+subnetaddress      = ["172.16.0.0/25"]
+pip_name           = "nonprod-pip"
+nsg                = "nonprod-nsg"
+nic                = "nonprod-nic"
+vm                 = "nonprod-vm"
+vmsize             = "Standard_Ds1_v2"
+adminuser          = "nonproduser"
+password           = "Azuredevops@12345"
