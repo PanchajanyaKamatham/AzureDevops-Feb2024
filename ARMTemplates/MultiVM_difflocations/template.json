@@ -1,0 +1,235 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "Locations": {
+            "type": "array",
+            "defaultValue": [
+                "eastus",
+                "uksouth",
+                "centralindia"
+            ]
+        },
+        "virtual_machine_name": {
+            "type": "string"
+        },
+        "virtual_machine_size": {
+            "type": "string"
+        },
+        "adminUser": {
+            "type": "string"
+        },
+        "adminPassword": {
+            "type": "string"
+        }
+    },
+    "functions": [],
+    "variables": {
+        "storage_account_name": "aadhyasrinithisa2822024",
+        "tags": {
+            "project": "AADHYA INTERIOR",
+            "environment": "Dev"
+        },
+        "public_ip_name": "arm-publicip",
+        "nsg_name": "arm-nsg",
+        "vnet_name": "arm-vnet",
+        "snet_name": "arm-snet",
+        "nic_name": "arm-nic"
+    },
+    "resources": [
+        {
+            "name": "[concat(toLower(variables('storage_account_name')),copyIndex())]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2023-01-01",
+            "location": "[parameters('Locations')[copyIndex()]]",
+            "copy": {
+                "name": "storagecopy",
+                "count": "[length(parameters('Locations'))]"
+            },
+            "tags": "[variables('tags')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2"
+        },
+        {
+            "name": "[concat(toLower(variables('public_ip_name')),copyIndex())]",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2023-04-01",
+            "location": "[parameters('Locations')[copyIndex()]]",
+            "copy": {
+                "name": "publiipccopy",
+                "count": "[length(parameters('Locations'))]"
+            },
+            "tags": "[variables('tags')]",
+            "properties": {
+                "publicIPAllocationMethod": "Static"
+            }
+        },
+        {
+            "name": "[concat(toLower(variables('nsg_name')),copyIndex())]",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2023-04-01",
+            "location": "[parameters('Locations')[copyIndex()]]",
+            "copy": {
+                "name": "nsgcopy",
+                "count": "[length(parameters('Locations'))]"
+            },
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "RDP",
+                        "properties": {
+                            "description": "RDP_Allow",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "HTTP",
+                        "properties": {
+                            "description": "HTTP_Allow",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "80",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 200,
+                            "direction": "Inbound"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[concat(toLower(variables('vnet_name')),copyIndex())]",
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2023-04-01",
+            "location": "[parameters('Locations')[copyIndex()]]",
+            "copy": {
+                "name": "vnetcopy",
+                "count": "[length(parameters('Locations'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups',concat(toLower(variables('nsg_name')),copyIndex()))]"
+            ],
+            "tags": "[variables('tags')]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.0.0.0/24"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[concat(toLower(variables('snet_name')),copyIndex())]",
+                        "copy": {
+                            "name": "snetcopy",
+                            "count": "[length(parameters('Locations'))]"
+                        },
+                        "properties": {
+                            "addressPrefix": "10.0.0.0/25",
+                            "networkSecurityGroup": {
+                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups',concat(toLower(variables('nsg_name')),copyIndex()))]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[concat(toLower(variables('nic_name')),copyIndex())]",
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2023-04-01",
+            "location": "[parameters('Locations')[copyIndex()]]",
+            "copy": {
+                "name": "niccopy",
+                "count": "[length(parameters('Locations'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses',concat(toLower(variables('public_ip_name')),copyIndex()))]",
+                "[resourceId('Microsoft.Network/virtualNetworks',concat(toLower(variables('vnet_name')),copyIndex()))]"
+            ],
+            "tags": "[variables('tags')]",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "[concat(toLower(variables('nic_name')),copyIndex())]",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "copy": {
+                                "name": "nicnamecopy",
+                                "count": "[length(parameters('Locations'))]"
+                            },
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(toLower(variables('public_ip_name')),copyIndex()))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets',concat(toLower(variables('vnet_name')),copyIndex()), concat(toLower(variables('snet_name')),copyIndex()))]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[concat(toLower(parameters('virtual_machine_name')),copyIndex())]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2023-03-01",
+            "location": "[parameters('Locations')[copyIndex()]]",
+            "copy": {
+                "name": "vmcopy",
+                "count": "[length(parameters('Locations'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts',concat(toLower(variables('storage_account_name')),copyIndex()))]",
+                "[resourceId('Microsoft.Network/networkInterfaces',concat(toLower(variables('nic_name')),copyIndex()))]"
+            ],
+            "tags": "[variables('tags')]",
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "[parameters('virtual_machine_size')]"
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtual_machine_name')]",
+                    "adminUsername": "[parameters('adminUser')]",
+                    "adminPassword": "[parameters('adminPassword')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2012-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "name": "[concat(parameters('virtual_machine_name'), '-', 'osdisk', copyIndex())]",
+                        "caching": "ReadWrite",
+                        "createOption": "FromImage"
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(toLower(variables('nic_name')),copyIndex()))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/',concat(toLower(variables('storage_account_name')),copyIndex()))).primaryEndpoints.blob]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}

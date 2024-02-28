@@ -184,3 +184,31 @@ Terraform Modules:
 
 Local Module
 Remote module
+
+Terraform scenario:
+------------------
+
+main.tf -> VM deployed
+
+datadisk to VM (manually)
+
+terraform plan --> terraform.tfstate
+
+add 0  change  0  destroy 0
+
+
+terraform import azurerm_data_disk.example <resourceid>
+
+
+main.tf --> vm 
+
+deleted vm (manually)
+ 
+terraform.tfstate
+
+terraform apply
+
+
+terraform-vm
+terraform-vnet
+terraform-subnet
