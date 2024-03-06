@@ -212,3 +212,115 @@ terraform apply
 terraform-vm
 terraform-vnet
 terraform-subnet
+
+AzureDevops Services: VSTS
+--------------------
+1. Azure boards
+2. Azure Repos
+3. Azure Pipelines
+4. Azure test plans
+5. Azure Artifacts
+
+Azure portal: Portal.azure.com
+Azuredevops:  dev.azure.com
+
+https://dev.azure.com/Feb-2024/SAANVIKIT
+
+Azure boards:
+------------
+Agile methodology 
+
+Sprint model - 2 weeks 
+
+Sprint1   March 4 - March 15
+Sprint2   March 18 - March 29
+Sprint3   April 1 - April 12
+Sprint4   April 15 - April 26
+
+Sprint  planning (1 - 2hrs)
+  - Backlogs (work items to deliver)
+  - Capacity planning (team capacity)
+
+Daily standup calls (15 - 30min)
+  - what you have done yesterday
+  - what are you going to do today
+  - Blocker to call out
+
+Retrospective (1 - 2hrs)
+  - what went well
+  - what didn't went well
+  - what can be improved
+
+
+Agile workflow:
+--------------
+Epic
+  \_
+    Feature
+      \_
+        Userstory
+          \_
+            tasks
+              \_
+                issues
+
+Epic          develop an application like amazon.in
+Feature       Singup page
+(Backlogs)    login page
+              Home page
+              product catalog
+              payment gateway
+              tracking 
+              support 
+Userstory     Singup page with email and password
+              Singup page with Google
+              Singup page with facebook
+              Signup page with apple
+
+              login with email and pasword
+              login with google account
+              login with facebook
+              login with apple
+
+task          Singup page with email and password (16hr)
+issue         create a issue
+
+
+Azure Repo's: (Git)
+------------
+
+Version control system:
+  - Centralized version control system
+  - Distributed version control system (git)
+
+  784  git clone https://Feb-2024@dev.azure.com/Feb-2024/SAANVIKIT/_git/SAANVIKIT
+  785  git config --global user.name "ramakrishna"
+  786  git config --global user.email saanvikitfeb2024@gmail.com
+  787  cd SAANVIKIT
+  788  git status
+  789  git add .
+  790  git status
+  791  git commit -m "New file added"
+  792  git status
+  793  git push origin main
+  794  git push origin main
+  795  git push origin main
+  796  git --all
+  797  git --all
+  798  git push origin main
+
+       git branch
+  809  git branch --all
+  810  git branch --all
+  811  git fetch --all
+  812  git branch
+  813  git checkout develop
+  814  git branch
+  815  git branch --all
+  816  git branch
+  817  git checkout -b feature/vm-size
+  818  git status
+  819  git add .
+  820  git status
+  821  git commit -m "vm size modified"
+  822  git push origin feature/vm-size
