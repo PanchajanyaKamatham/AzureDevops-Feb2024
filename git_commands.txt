@@ -1,0 +1,85 @@
+Azure Repo's: (Git)
+------------
+
+Version control system:
+  - Centralized version control system
+  - Distributed version control system (git)
+
+  784  git clone https://Feb-2024@dev.azure.com/Feb-2024/SAANVIKIT/_git/SAANVIKIT
+  785  git config --global user.name "ramakrishna"
+  786  git config --global user.email saanvikitfeb2024@gmail.com
+  787  cd SAANVIKIT
+  788  git status
+  789  git add .
+  790  git status
+  791  git commit -m "New file added"
+  792  git status
+  793  git push origin main
+  794  git push origin main
+  795  git push origin main
+  796  git --all
+  797  git --all
+  798  git push origin main
+
+       git branch
+  809  git branch --all
+  810  git branch --all
+  811  git fetch --all
+  812  git branch
+  813  git checkout develop
+  814  git branch
+  815  git branch --all
+  816  git branch
+  817  git checkout -b feature/vm-size
+  818  git status
+  819  git add .
+  820  git status
+  821  git commit -m "vm size modified"
+  822  git push origin feature/vm-size
+
+  866  git push -d origin feature/remove-spn
+  867  git branc --all
+  868  git branch --all
+  869  git pull
+  870  git fetch 
+  871  git branch --all
+  872  git puh -d origin feature/vm-size
+  873  git push -d origin feature/vm-size
+  874  clear
+  875  git branch
+  876  git status
+  877  git add .
+  878  git commit -m "removed username"
+  879  git log
+  880  git revet e58ea129881d1acd3a9fe961414272bec0074233
+  881  git revert e58ea129881d1acd3a9fe961414272bec0074233
+
+
+Git Commands:
+-------------
+  git config --global user.name "ramakrishna"
+  git config --global user.eamil "azureramakrishna@gmail.com"
+
+  git clone <cloning ulr>                 To clone remote repository to local
+
+  git status                              see the changes of files and folders
+  git add .                               add the files to local staging directory
+  git commit -m "commit message"          commit the changes to your local repository
+  git push origin main                    push the local branch to remote
+
+  git checkout <branch-name>              switch the branch 
+  git checkout -b <branch-name>           create a new branch
+
+  git pull  (fetch + merge)               bring all the changes and merge of remote branch to local branch
+  git fetch                               brings the information of remote branch to local branch
+
+  git merge develop                       merge the changes of another branch to active branch
+
+  git branch -d <branch-name>             delete the local branch
+  git push -d origin <branch-name>        delete the remote branch
+
+  git log                                 list all the commit history
+  git revert <commit-id>                  revert the changes
+
+  git branch                              list all the local branches
+  git branch --all                        list all the local and remote branches
