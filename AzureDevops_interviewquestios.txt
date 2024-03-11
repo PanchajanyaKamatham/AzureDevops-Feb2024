@@ -1,0 +1,46 @@
+AzureDevops Interview questions:
+-------------------------------
+
+1. What is IAC?
+2. What are the advantages of using IAC?
+3. what is ARMTemplates?
+4. what is the structure / Elements of ARMTemplates
+5. what is the difference between parameters and variables
+6. what is the powershell/cli command to deploy the armtemplates 
+7. what are the functions  you have used while writing ARMtemplates
+8. If i want to create multiple resources using single template what is the fucnction we use?
+9. what are the linked templates 
+10. how do you call existing resources in to your armtemplate 
+
+11. what is terraform 
+12. what are the advantages of terraform over armtemplate (ARMtemplates vs terraform)
+13. what are the building blocks of the terraform (provider, resources and outputs)
+14. what is the lifecycle of terraform 
+    terraform init
+    terraform fmt
+    terraform validate
+    terraform plan
+    terraform apply 
+    terraform destroy 
+15. what will happen when you execute each commands. explain in detailed
+16. what is the difference between terraform validate and terraform plan
+17. what is terraform locals?
+18. how do you refere already existing resources in azure portal in to your terraform templates (datasources)
+19. how do you import the existing resources in portal to your statefile and templates
+20. what is terraform statefile 
+21. where do you store your statefile?
+22. what is terraform backend
+23. what is the terraform provider for azure
+24. what is the provider version you are using (3.70.0)
+25. what is the terraform version you are using (v1.6.5)
+26. you have created a VM using the terraform now the statefile got deleted. Now if you come and do apply what happens?
+27. you have created a VM using terraform and some one went and created the data disk manually. now if you come and do terraform plan what happens
+28. you have created a VM using terraform and some one deleted the VM manually. now if you go and do terraform apply what will happen
+29. what is terraform for_each
+30. what is the function we use to create multiple resources in terraform 
+      - count.index
+      - for_each
+31. what is terraform provisioners 
+32. what is the terraform drift 
+33. how do you pass the variables during the apply
+34. how do you unlock the statefile

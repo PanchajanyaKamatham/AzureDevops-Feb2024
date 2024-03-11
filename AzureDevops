@@ -419,4 +419,24 @@ AzureDevops Interview questions:
 31. what is terraform provisioners 
 32. what is the terraform drift 
 33. how do you pass the variables during the apply
+34. how do you unlock the statefile
+
+
+Azure pipelines:
+---------------
+
+Pre-requisites:
+  - Service Connection
+      clinetid: 600bc481-f28d-4922-95de-10913f7f13bd
+      tenantid: 459865f1-a8aa-450a-baec-8b47a9e5c904
+      secret: Lpx8Q~wUm~aXaXiA4nz3PH3gLqocTFWyKsVmhdyd
+      suscriptionid: 2e28c82c-17d7-4303-b27a-4141b3d4088f
+  
+  - Agents
+      Microsoft Hosted agent(VM)
+          Submit the request for access: https://aka.ms/azpipelines-parallelism-request 
+
+      Self hosted agent
+
+Azurepipeline 
 
