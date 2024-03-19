@@ -439,4 +439,96 @@ Pre-requisites:
       Self hosted agent
 
 Azurepipeline 
+  - Classic editor pipeline (GUI)
+  - YAML pipeline
 
+How to setup the CI CD for the  ARMTemplates 
+CI (Continuous integration) - If any commits in source repository the build pipeline  will be triggered
+CD (Continuous deployment) - If any new artifact generated the release pipeline will be triggered
+CD (Continuours delivery) - Manulay deployment 
+
+
+How to setup the CI CD for terraform:
+
+
+
+Launch the Azure Cloud Shell from the portal. To deploy to a resource group, enter the following command
+
+az group create --name MyResourceGroup --location westus
+
+To create an App service plan
+
+az appservice plan create --resource-group MyResourceGroup --name MyPlan --sku S1
+
+Create the web app with a unique app name
+
+az webapp create --resource-group MyResourceGroup --plan MyPlan --name saanvikit-java
+
+Finally, create the MySQL server with a unique server name.
+
+az mysql server create --resource-group MyResourceGroup --name saanvikitsqldbserver --admin-user mysqldbuser --admin-password P2ssw0rd@123 --sku-name GP_Gen5_2
+
+
+Server Name: saanvikitsqldbserver.mysql.database.azure.com
+Server admin login name: mysqldbuser@saanvikitsqldbserver
+
+
+jdbc:mysql://saanvikitsqldbserver.mysql.database.azure.com:3306/saanvikitsqldbserver?useSSL=true&requireSSL=false"; myDbConn = DriverManager.getConnection(url, "mysqldbuser@saanvikitsqldbserver", P2ssw0rd@123);
+
+
+
+
+Docker:
+------
+https://docs.docker.com/desktop/install/ubuntu/
+
+
+    1  docker images
+    2  clear
+    3  docker run hello-world
+    4  docker image
+    5  docker images
+    6  docker ps
+    7  docker ps -a
+    8  docker images
+    9  docker run ubuntu
+   10  docker ps -a
+   11  docker images
+   12  docker pull ubuntu:20.04
+   13  docker images
+   14  docker run ubuntu:20.04
+   15  docker ps -a
+   16  docker images
+   17  docker run --name saanvikit -itd ubuntu
+   18  docker ps
+   19  docker attach 1275
+   20  docker ps
+   21  docker ps -a
+   22  docker start 1275
+   23  docker ps
+   24  docker attach saanvikit
+   25  docker ps
+   26  docker images
+   27  docker run --name test -it ubuntu:22.04
+   28  docker ps
+   29  docker stop 3df9cb320377 1275
+   30  docker ps
+   31  docker ps -a
+   32  docker ps test saanvikit
+   33  docker start test saanvikit
+   34  docker ps
+   35  docker images
+   36  docker image rm ca2b
+   37  docker image rm d2c9
+   38  clear
+   39  docker ps -a
+   40  docker rm b63a
+   41  docker ps -a
+   42  docker rm 5cdc 8033
+   43  docker ps -a
+   44  docker images
+   45  docker image rm d2c9
+   46  docker images
+   47  docker ps
+   48  docker image rm 3cff
+   49  docker images

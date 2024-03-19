@@ -1,0 +1,25 @@
+---
+TrainingModule: 'Azure with AzureDevops'
+TainingInstitute: SAANVIKIT
+TrainerName: Ramakrishna
+ContactNumber: 9513184144
+Address: 
+  flatno: 1234
+  location: kukatpally
+  city: Hyderabad
+  State: TS
+  Country: India
+  Pincode: 123456
+
+Participants:
+- Name: Ravi
+  location: Hyderabad
+  IsAzureAdmin: true 
+
+- Name: Shanmukhi
+  location: UK
+  IsAzureAdmin: true 
+
+- Name: vijay
+  location: poland
+  IsAzureAdmin: false
