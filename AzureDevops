@@ -483,6 +483,7 @@ Docker:
 https://docs.docker.com/desktop/install/ubuntu/
 
 
+
     1  docker images
     2  clear
     3  docker run hello-world
@@ -532,3 +533,50 @@ https://docs.docker.com/desktop/install/ubuntu/
    47  docker ps
    48  docker image rm 3cff
    49  docker images
+   50  history
+   51  systemctl status docker
+   52  docker
+   53  clear
+   54  docker images
+   55  docker ps
+   56  docker run -it --name test ubuntu:22.04
+   57  docker ps -a
+   58  docker rm 3df9 1275
+   59  docker ps -a
+   60  docker run -it --name test ubuntu:22.04
+   61  docker ps
+   62  docker commit 2d2c saanvikitfeb/myubuntu:1.0
+   63  docker images
+   64  docker run -itd --name test-container saanvikitfeb/myubuntu:1.0
+   65  docker ps
+   66  docker attach feb4
+   67  docker ps
+   68  docker images
+   69  docker login
+   70  docker push saanvikitfeb/myubuntu:1.0
+   71  docker ps
+   72  docker attach feb4
+   73  docker ps
+   74  docker commit test-container saanvikitfeb/myubuntu:2.0
+   75  docker image
+   76  docker images
+   77  docker run  -it --name test2 saanvikit/myubuntu:2.0
+   78  docker run  -it --name test2 saanvikitfeb/myubuntu:2.0
+   79  docker images
+   80  docker push saanvikitfeb/myubuntu:2.0
+   81  docker images
+   82  docker images inspect saanvikitfeb/myubuntu:2.0
+   83  docker image inspect saanvikitfeb/myubuntu:2.0
+   84  docker images
+   85  docker tag saanvikitfeb/myubuntu:2.0  saanvikitfeb/myubuntu:3.0
+   86  docker images
+   87  docker rmi saanvikitfeb/myubuntu:3.0
+   88  docker images
+   89  docker rmi ubuntu ubuntu:22.04 --force
+   90  docker images
+   91  docker ps
+   92  docker inspect test2
+   93  docker ps
+   94  docker stats
+   95  history
+
