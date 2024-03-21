@@ -580,3 +580,18 @@ https://docs.docker.com/desktop/install/ubuntu/
    94  docker stats
    95  history
 
+  946  git clone https://github.com/Azure-Samples/aci-helloworld.git
+  947  cd aci-helloworld
+  948  ls
+  949  docker build -t aci-tutorail-app .
+  950  docker build -t aci-tutorail-app .
+  951  docker images
+  952  az acr login --name saanvikit
+  953  clear
+  954  docker images
+  955  docker tag aci-tutorial-app saanvikit.azurecr.io/aci-tutorail-app:1.0
+  956  docker images
+  957  docker tag aci-tutorail-app saanvikit.azurecr.io/aci-tutorail-app:1.0
+  958  docker images
+  959  docker push saanvikit.azurecr.io/aci-tutorail-app:1.0
+  960  az acr update -n saanvikit  --admin-enabled true
