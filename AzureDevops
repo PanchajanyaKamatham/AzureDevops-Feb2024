@@ -595,3 +595,37 @@ https://docs.docker.com/desktop/install/ubuntu/
   958  docker images
   959  docker push saanvikit.azurecr.io/aci-tutorail-app:1.0
   960  az acr update -n saanvikit  --admin-enabled true
+
+
+Interview questions:
+-------------------
+1. tell me about agile process?
+2. what is your sprint duration?
+3. what is git ?
+4. is git distributed vcs or centralized vcs?
+5. git commands **
+6. git pull vs git fetch
+7. git branching strategies ?
+8. what are the pipeline agents?
+9. what is the difference between Microsft hosted agents vs selfhosted agents?
+10. tell me step by step how do you configure the self hosted agent?
+11. what is service connection and how do you establish to azure
+12. what type of pipelines you have used classic editor or yaml pipelines?
+13. can you explain your CI CD pipeline?
+14. can you explain the any applicaiton CI CD process.
+15. How do you maintain the secrects within your pipeline
+16. what is library in azure pipelines?
+17. what are the advantages using yaml pipelines vs classic editor 
+18. what is CI and CD
+19. what is contineous deployment vs contineous delivery
+20. what is docker
+21. what is container
+22. docker commands ***
+23. what is kubernetes
+24. explain kubernetes architecture 
+25. what is aks
+26. explain aks creation process 
+27. kubectl commands ***
+28. what is azure conatiner instance?
+29. what is azure container registry?
+30. explain docker file 
